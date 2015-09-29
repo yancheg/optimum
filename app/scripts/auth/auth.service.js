@@ -72,6 +72,7 @@
                     }
 
                     user = tmp;
+                    webStorage.set('token', user.token);
                     if(!!data.remember) {
                         webStorage.set('user', JSON.stringify(user));
                     }
@@ -89,6 +90,7 @@
         function logout () {
             user = null;
             webStorage.remove('user');
+            webStorage.remove('token');
             FB.logout();
         }
 
