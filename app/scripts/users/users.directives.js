@@ -8,7 +8,7 @@
     angular.module('optimum.users').directive('editBtn', ['$modal', function($modal){
         return {
             restrict: 'E',
-            template: '<span class="glyphicon glyphicon-edit"></span>',
+            template: '<div><span class="glyphicon glyphicon-edit"></span>Edit</div>',
             scope: {
                 user: '=',
                 action: '=',
@@ -20,7 +20,7 @@
                     var modalInstance = $modal.open({
                         animation: true,
                         templateUrl: 'scripts/users/views/edit.html',
-                        controller: function ($scope, $modalInstance, item) {
+                        controller:['$scope', '$modalInstance', 'item', function ($scope, $modalInstance, item) {
                             var old_info = angular.copy(item);
                             $scope.item = item;
 
@@ -31,7 +31,7 @@
                             $scope.cancel = function () {
                                 $modalInstance.dismiss(old_info);
                             };
-                        },
+                        }],
                         resolve: {
                             item: function () {
                                 return angular.copy(scope.user);

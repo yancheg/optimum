@@ -17,7 +17,7 @@
     RouterConfig.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', 'ACCESS.LEVEL'];
 
     function RouterConfig($urlRouterProvider, $stateProvider, $locationProvider, ACCESS) {
-        $urlRouterProvider.otherwise('/404.html');
+        $urlRouterProvider.otherwise('/');
 /*        $locationProvider.html5Mode({
             enabled: true,
             requireBase: false

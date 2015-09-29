@@ -18,7 +18,7 @@
         if( webStorage.has('users') ) {
             users = JSON.parse(webStorage.get('users'));
         } else {
-            $http.get('/data/auth.json').success(function(data){
+            $http.get('./data/auth.json').success(function(data){
                 users = data;
                 webStorage.set('users', JSON.stringify(data));
             });
@@ -87,6 +87,17 @@
 
         }
 
+        function sdbmCode(str){
+            var hash = 0, char, i;
+            if (str.length == 0) return hash;
+            for (i = 0; i < str.length; i++) {
+                char = str.charCodeAt(i);
+                hash = ((hash<<5)-hash)+char;
+                hash = hash & hash; // Convert to 32bit integer
+            }
+            return hash;
+        }
+
         function logout () {
             user = null;
             webStorage.remove('user');
@@ -103,6 +114,14 @@
                 return false;
             }
 
+            /* here request to server for user register!!
+                but for test make local sign up!
+             */
+            data.token = sdbmCode(data.name + data.password + data.email);
+            data.role = "admin";
+            user = data;
+            webStorage.set('token', user.token);
+            webStorage.set('user', JSON.stringify(user));
 
             $state.go('users');
         }

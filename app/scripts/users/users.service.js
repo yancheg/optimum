@@ -27,7 +27,7 @@
             var defer = $q.defer();
             $http({
                 method: 'GET',
-                url: '/data/users.json'
+                url: './data/users.json'
             }).success(function(data){
                 var arr = $filter('filter')(data, { $: search});
                 defer.resolve(arr);
@@ -44,7 +44,7 @@
             } else {
                 $http({
                     method: 'GET',
-                    url: '/data/users.json'
+                    url: './data/users.json'
                 }).success(function(data){
                     users = data;
                     webStorage.set('usersList', JSON.stringify(data));
@@ -62,7 +62,7 @@
 
             $http({
                 method: 'GET',
-                url: '/data/users.json'
+                url: './data/users.json'
             }).success(function(data){
                 var arr = new Array(data.length/25);
                 defer.resolve(arr);
