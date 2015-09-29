@@ -15,6 +15,6 @@
 
         vm.login = AuthService.login;
         vm.register = AuthService.register;
-        vm.facebook = AuthService.getUserInfo;
+        vm.facebook = AuthService.facebookLogin;
     }
 }());

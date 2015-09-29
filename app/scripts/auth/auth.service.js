@@ -30,7 +30,8 @@
             login: login,
             logout: logout,
             register: register,
-            watchAuthenticationStatusChange: watchAuthenticationStatusChange
+            watchAuthenticationStatusChange: watchAuthenticationStatusChange,
+            facebookLogin: facebookLogin
         };
 
         function grantAccess() {
@@ -124,6 +125,19 @@
             webStorage.set('user', JSON.stringify(user));
 
             $state.go('users');
+        }
+
+        function facebookLogin() {
+
+            FB.login(function(response) {
+                    if (response.authResponse) {
+                        console.log('FB.login connected');
+                        webStorage.set('token', response.authResponse.accessToken);
+                    } else {
+                        console.log('FB.login cancelled');
+                    }
+                }
+            );
         }
 
         function watchAuthenticationStatusChange() {
