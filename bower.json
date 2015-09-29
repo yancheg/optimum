@@ -1,0 +1,35 @@
+{
+  "name": "optimum-test",
+  "version": "1.0.0",
+  "authors": [
+    "Yan Tishkovskiy <yancheg2010@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css"
+      ]
+    }
+  },
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "angular-toastr": "~1.5.0",
+    "angular-animate": "~1.4.6",
+    "angular-webstorage": "~0.14.0",
+    "angular-bootstrap": "~0.13.4"
+  }
+}

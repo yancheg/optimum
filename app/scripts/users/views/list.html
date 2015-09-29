@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-lg-3 col-lg-offset-9">
+        <input class="form-control" action="vm.filter" search-field placeholder="Filter data">
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Login</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in vm.users track by $index">
+            <td>{{$index + 1}}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.login }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td><edit-btn user="user" index="$index" action="vm.edit" /></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+        <div class="row" ng-show="vm.pagination.length>0">
+            <nav class="col-lg-6 col-lg-offset-3">
+                <ul class="pagination">
+                    <li ui-sref-active="active" ng-repeat="i in vm.pagination track by $index"><a ui-sref="users({ page: $index + 1 })">{{ $index + 1 }}</a></li>
+                </ul>
+            </nav>
+        </div>

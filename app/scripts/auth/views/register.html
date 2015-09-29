@@ -1,0 +1,18 @@
+<div class="container">
+
+    <form class="form-signin" name="form" ng-init="form" ng-submit="vm.register(form.field)" novalidate="">
+        <h2 class="form-signin-heading">Please sign up</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail"  ng-model="form.field.email" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputLogin" class="sr-only">Login</label>
+        <input type="text" id="inputLogin"  ng-model="form.field.login" class="form-control" placeholder="Login" required>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword"  ng-model="form.field.password" class="form-control" placeholder="Password" required>
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="text" id="inputName" class="form-control"  ng-model="form.field.name" placeholder="Name" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <p class="text-center"> -Or- </p>
+        <fb:login-button max-rows="1" size="large"></fb:login-button>
+    </form>
+
+</div> <!-- /container -->
